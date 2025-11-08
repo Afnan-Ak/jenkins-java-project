@@ -6,7 +6,11 @@ stages{
            echo "Checkout done"
       }
    }
-
+stage("building the application"){
+     steps {
+           echo "Building java application"
+      }
+   }
 } // end of stages
 
 } // end of pipeline
