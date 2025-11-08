@@ -36,6 +36,7 @@ stage("Building the Docker Image"){
            echo "====== Building Image  completed====="
          """      
       }
+
    }
 } // end of stages
 
