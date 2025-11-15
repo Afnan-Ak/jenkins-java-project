@@ -44,6 +44,18 @@ stage("Building the Docker Image"){
            echo "====== Building Image Completed ====="
          """      
       }
+stage(' Push Image') {
+            steps {
+                 withCredentials([usernamePassword(credentialsId: 'dockerhub-token', usernameVariable: 'MY_DOCKER_USER',
+    passwordVariable: 'MY_DOCKER_PASS')]) {
+                    sh '''
+                        echo "$MY_DOCKER_PASS" | docker login -u "$MY_DOCKER_USER" --password-stdin
+                        docker push $IMAGE_NAME
+                       
+                   '''
+              }
+        }
+     }
    }
    }
 } // end of stages
