@@ -36,7 +36,15 @@ stage("Building the Docker Image"){
            echo "====== Building Image  completed====="
          """      
       }
-
+stage("Building the Docker Image"){
+     steps {
+         sh """
+           echo "========Building the Docker Image ============"
+            docker build -t $IMAGE_NAME .
+           echo "====== Building Image Completed ====="
+         """      
+      }
+   }
    }
 } // end of stages
 
